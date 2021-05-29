@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    [SerializeField] int levelLength;
-    [SerializeField] int startPlatformLength = 5;
-    [SerializeField] int endPlatformLength = 5;
-    [SerializeField] int distanceBetweenPlatforms;
     [SerializeField] Transform platformPrefab;
     [SerializeField] Transform platformParent;
+
     [SerializeField] Transform monsterPrefab;
     [SerializeField] Transform monsterParent;
+
     [SerializeField] Transform healthCollectable;
     [SerializeField] Transform healthCollectableParent;
+
+    [SerializeField] int levelLength;
+    [SerializeField] int distanceBetweenPlatforms;
+
+    [SerializeField] int startPlatformLength = 5;
+    [SerializeField] int endPlatformLength = 5;
+    
     [SerializeField] float platformPositionMinY = 0f;
     [SerializeField] float platformPositionMaxY = 10f;
+
     [SerializeField] int platformLengthMin = 1;
     [SerializeField] int platformLengthMax = 4;
+
     [SerializeField] float chanceForMonsterExistence = 0.25f;
     [SerializeField] float chanceForCollectableExistence = 0.1f;
+
     [SerializeField] float healthCollectableMinY = 1f;
     [SerializeField] float healthCollectableMaxY = 3f;
 
@@ -49,9 +57,22 @@ public class LevelGenerator : MonoBehaviour
         }
 	}
 
+    void GenerateLevel()
+    {
+        PlatformPositionInfo[] platformsInfo = new PlatformPositionInfo[levelLength];
+        for (int i = 0; i < platformsInfo.Length; i++)
+        {
+            platformsInfo[i] = new PlatformPositionInfo(PlatformType.None, -1f, false, false);
+        }
+
+        FillOutPositionInfo(platformsInfo);
+        CreatePlatformsFromPositionInfo(platformsInfo);
+    }
+
     void FillOutPositionInfo(PlatformPositionInfo[] platformsInfo)
 	{
         int currentPlatformInfoIndex = 0;
+
 		for (int i = 0; i < startPlatformLength; i++)
 		{
             platformsInfo[currentPlatformInfoIndex].platformType = PlatformType.Flat;
@@ -61,7 +82,7 @@ public class LevelGenerator : MonoBehaviour
 
         while(currentPlatformInfoIndex < levelLength - endPlatformLength)
 		{
-            if(platformsInfo[currentPlatformInfoIndex - 1].platformType != PlatformType.None)
+            if(platformsInfo[currentPlatformInfoIndex - 1].platformType == PlatformType.Flat)
 			{
                 currentPlatformInfoIndex++;
                 continue;
@@ -127,16 +148,4 @@ public class LevelGenerator : MonoBehaviour
 
         }
 	}
-
-    void GenerateLevel()
-	{
-        PlatformPositionInfo[] platformsInfo = new PlatformPositionInfo[levelLength];
-		for (int i = 0; i < platformsInfo.Length; i++)
-		{
-            platformsInfo[i] = new PlatformPositionInfo(PlatformType.None, -1f, false, false);
-		}
-
-        FillOutPositionInfo(platformsInfo);
-        CreatePlatformsFromPositionInfo(platformsInfo);
-    }
 }
