@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Platform
+  - Monster
+  - Player Bullet
+  - Monster Bullet
+  - Bounds
+  - Health
+  - More Platforms
   layers:
   - Default
   - TransparentFX
@@ -11,12 +18,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - BG
+  - Player
+  - MonsterBullet
+  - PlayerBullet
+  - Monster
   - 
   - 
   - 
