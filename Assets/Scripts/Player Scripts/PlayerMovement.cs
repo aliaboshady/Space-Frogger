@@ -13,12 +13,24 @@ public class PlayerMovement : MonoBehaviour
 
 	Rigidbody rigidBody;
 	bool isGrounded;
-	bool playerJumped;
 	bool canDoubleJump;
+	bool pressedSpace;
 
 	private void Start()
 	{
 		rigidBody = GetComponent<Rigidbody>();
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			pressedSpace = true;
+		}
+		else if (Input.GetKeyUp(KeyCode.Space))
+		{
+			pressedSpace = false;
+		}
 	}
 
 	private void FixedUpdate()
@@ -40,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void PlayerJumped()
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+		if (pressedSpace && isGrounded)
 		{
 			rigidBody.AddForce(new Vector3(0, firstJumpSpeed, 0));
 		}
