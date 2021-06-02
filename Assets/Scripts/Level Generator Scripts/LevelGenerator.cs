@@ -38,7 +38,7 @@ public class LevelGenerator : MonoBehaviour
 
 	private void Start()
 	{
-        GenerateLevel();
+        GenerateLevel(true);
 	}
 
 	class PlatformPositionInfo
@@ -57,7 +57,7 @@ public class LevelGenerator : MonoBehaviour
         }
 	}
 
-    void GenerateLevel()
+    public void GenerateLevel(bool gameStarted)
     {
         PlatformPositionInfo[] platformsInfo = new PlatformPositionInfo[levelLength];
         for (int i = 0; i < platformsInfo.Length; i++)
@@ -66,7 +66,7 @@ public class LevelGenerator : MonoBehaviour
         }
 
         FillOutPositionInfo(platformsInfo);
-        CreatePlatformsFromPositionInfo(platformsInfo);
+        CreatePlatformsFromPositionInfo(platformsInfo, gameStarted);
     }
 
     void FillOutPositionInfo(PlatformPositionInfo[] platformsInfo)
@@ -118,7 +118,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    void CreatePlatformsFromPositionInfo(PlatformPositionInfo[] platformsInfo)
+    void CreatePlatformsFromPositionInfo(PlatformPositionInfo[] platformsInfo, bool gameStarted)
 	{
 		for (int i = 0; i < platformsInfo.Length; i++)
 		{
@@ -129,9 +129,18 @@ public class LevelGenerator : MonoBehaviour
                 continue;
 			}
 
-            //check if game started
-            Vector3 platformPosition = new Vector3(distanceBetweenPlatforms * i, positionInfo.positionY, 0);
-            //save platform x position
+            Vector3 platformPosition;
+
+            if (gameStarted)
+            {
+                platformPosition = new Vector3(distanceBetweenPlatforms * i, positionInfo.positionY, 0);
+            }
+			else {
+
+                platformPosition = new Vector3(distanceBetweenPlatforms + platformLastPositionX, positionInfo.positionY, 0);
+            }
+
+            platformLastPositionX = platformPosition.x;
 
             Transform createBlock = Instantiate(platformPrefab, platformPosition, Quaternion.identity);
             createBlock.parent = platformParent;
