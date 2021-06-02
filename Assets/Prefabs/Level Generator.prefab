@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &950198698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950198699}
+  m_Layer: 0
+  m_Name: Monster Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &950198699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950198698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6923581413562445314}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6923581413562445317
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,6 +59,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6923581413869156516}
+  - {fileID: 950198699}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,16 +77,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 6076587614642439599, guid: c7fa411d32ee96342aa88bab506c588e, type: 3}
   platformParent: {fileID: 6923581413869156516}
-  monsterPrefab: {fileID: 0}
-  monsterParent: {fileID: 0}
+  monsterPrefab: {fileID: 4248586613682615630, guid: aa007a25c70b9b540bbfdd718c8cd1bb, type: 3}
+  monsterParent: {fileID: 950198699}
   healthCollectable: {fileID: 0}
   healthCollectableParent: {fileID: 0}
-  levelLength: 10
-  distanceBetweenPlatforms: 6
+  levelLength: 100
+  distanceBetweenPlatforms: 3
   startPlatformLength: 2
   endPlatformLength: 2
   platformPositionMinY: 0
-  platformPositionMaxY: 7
+  platformPositionMaxY: 0
   platformLengthMin: 2
   platformLengthMax: 4
   chanceForMonsterExistence: 0.25
