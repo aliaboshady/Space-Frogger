@@ -570,10 +570,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 169636087, guid: 45baae23fe0a8eb47baf264be181d8fa, type: 3}
-      propertyPath: fireDelay
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 169636087, guid: 45baae23fe0a8eb47baf264be181d8fa, type: 3}
       propertyPath: levelGenerator
       value: 
       objectReference: {fileID: 509814411}

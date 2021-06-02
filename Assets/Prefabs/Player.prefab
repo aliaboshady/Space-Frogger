@@ -359,7 +359,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4900077373471882375}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e371949858d29a44f86ae93b72ac9211, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.24
@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelGenerator: {fileID: 0}
   playerBullet: {fileID: 7215778582261563665, guid: b90e627254b27e94d8081db64724f883, type: 3}
+  fireDelay: 0.25
 --- !u!1 &4900077373471882377
 GameObject:
   m_ObjectHideFlags: 0
