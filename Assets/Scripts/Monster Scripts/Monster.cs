@@ -76,4 +76,28 @@ public class Monster : MonoBehaviour
 			newBullet.parent = transform;
 		}
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if(other.tag == Tags.PLAYER_BULLET_TAG)
+		{
+			MonsterDie();
+		}
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == Tags.PLAYER_TAG)
+		{
+			//MonsterDie();
+		}
+	}
+
+	void MonsterDie()
+	{
+		Vector3 effectPos = transform.position;
+		effectPos.y += 2f;
+		Instantiate(monsterDiedEffect, effectPos, Quaternion.identity);
+		Destroy(gameObject);
+	}
 }
