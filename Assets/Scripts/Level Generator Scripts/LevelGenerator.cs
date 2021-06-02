@@ -156,7 +156,7 @@ public class LevelGenerator : MonoBehaviour
                     platformPosition = new Vector3(distanceBetweenPlatforms + platformLastPositionX, positionInfo.positionY + 0.01f, 0);
                 }
 
-                Transform createMonster = Instantiate(monsterPrefab, platformPosition, Quaternion.identity);
+                Transform createMonster = Instantiate(monsterPrefab, platformPosition, Quaternion.Euler(0f, -90f, 0f));
                 createMonster.parent = monsterParent;
             }
 

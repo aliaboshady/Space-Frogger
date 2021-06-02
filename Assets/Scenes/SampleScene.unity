@@ -613,10 +613,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7215778582261563676, guid: b90e627254b27e94d8081db64724f883, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7215778582261563677, guid: b90e627254b27e94d8081db64724f883, type: 3}
       propertyPath: m_Name
       value: Player Bullet
@@ -752,10 +748,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3244092984787116754, guid: acb20f4fec3731f489e3270075191b8c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3244092984787116755, guid: acb20f4fec3731f489e3270075191b8c, type: 3}
       propertyPath: m_Name
       value: Monster Bullet

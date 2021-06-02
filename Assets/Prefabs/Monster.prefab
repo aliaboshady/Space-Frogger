@@ -1120,6 +1120,7 @@ GameObject:
   - component: {fileID: 4248586613693051118}
   - component: {fileID: 4248586613683007373}
   - component: {fileID: 4248586613683007372}
+  - component: {fileID: 657612334452546359}
   m_Layer: 11
   m_Name: Monster
   m_TagString: Monster
@@ -1200,3 +1201,21 @@ CapsuleCollider:
   m_Height: 2.67
   m_Direction: 1
   m_Center: {x: 0, y: 1.24, z: 0}
+--- !u!114 &657612334452546359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248586613683104110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcc2290f6acbf642923b2d69d60b6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterDiedEffect: {fileID: 5341350088733550552, guid: 7d5b6133830c0fc4db15bde0d10e0788, type: 3}
+  bullet: {fileID: 3244092984787116767, guid: acb20f4fec3731f489e3270075191b8c, type: 3}
+  distanceFromPlayerToStartMove: 20
+  movementSpeedMin: 1
+  movementSpeedMax: 2
+  canShoot: 1
